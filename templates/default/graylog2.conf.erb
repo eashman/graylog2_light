@@ -1,0 +1,37 @@
+# Configured by Chef. Do not edit manually.
+
+syslog_listen_port = <%= node[:graylog2_light][:server][:syslog_listen_port] %>
+syslog_protocol = <%= node[:graylog2_light][:server][:syslog_protocol] %>
+
+elasticsearch_url = <%= node[:graylog2_light][:server][:elasticsearch_url] %>
+elasticsearch_index_name = <%= node[:graylog2_light][:server][:elasticsearch_index_name] %>
+
+force_syslog_rdns = <%= node[:graylog2_light][:server][:force_syslog_rdns] %>
+allow_override_syslog_date = <%= node[:graylog2_light][:server][:allow_override_syslog_date] %>
+
+mongodb_host = <%= node[:graylog2_light][:server][:mongodb_host] %>
+mongodb_port = <%= node[:graylog2_light][:server][:mongodb_port] %>
+mongodb_database = <%= node[:graylog2_light][:server][:mongodb_database] %>
+mongodb_useauth = <%= node[:graylog2_light][:server][:mongodb_useauth] %>
+mongodb_user = <%= node[:graylog2_light][:server][:mongodb_user] %>
+mongodb_password = <%= node[:graylog2_light][:server][:mongodb_password] %>
+mongodb_max_connections = <%= node[:graylog2_light][:server][:mongodb_max_connections] %>
+mongodb_threads_allowed_to_block_multiplier = <%= node[:graylog2_light][:server][:mongodb_threads_allowed_to_block_multiplier] %>
+
+mq_batch_size = <%= node[:graylog2_light][:server][:mq_batch_size] %>
+mq_poll_freq = <%= node[:graylog2_light][:server][:mq_poll_freq] %>
+mq_max_size = <%= node[:graylog2_light][:server][:mq_max_size] %>
+
+use_gelf = <%= node[:graylog2_light][:server][:use_gelf] %>
+gelf_listen_address = <%= node[:graylog2_light][:server][:gelf_listen_address] %>
+gelf_listen_port = <%= node[:graylog2_light][:server][:gelf_listen_port] %>
+
+amqp_enabled = <%= node[:graylog2_light][:server][:amqp_enabled] %>
+amqp_subscribed_queues = <%= node[:graylog2_light][:server][:amqp_subscribed_queues] %>
+amqp_host = <%= node[:graylog2_light][:server][:amqp_host] %>
+amqp_port = <%= node[:graylog2_light][:server][:amqp_port] %>
+amqp_username = <%= node[:graylog2_light][:server][:amqp_username] %>
+amqp_password = <%= node[:graylog2_light][:server][:amqp_password] %>
+amqp_virtualhost = <%= node[:graylog2_light][:server][:amqp_virtualhost] %>
+
+forwarder_loggly_timeout = <%= node[:graylog2_light][:server][:forwarder_loggly_timeout] %>
