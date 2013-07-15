@@ -1,3 +1,3 @@
-graylog2-light Cookbook
+graylog2_light Cookbook
 =======================
 TODO: Document.
