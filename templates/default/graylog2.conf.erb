@@ -3,18 +3,18 @@
 syslog_listen_port = <%= node[:graylog2_light][:server][:syslog_listen_port] %>
 syslog_protocol = <%= node[:graylog2_light][:server][:syslog_protocol] %>
 
-elasticsearch_url = <%= node[:graylog2_light][:server][:elasticsearch_url] %>
-elasticsearch_index_name = <%= node[:graylog2_light][:server][:elasticsearch_index_name] %>
+elasticsearch_url = <%= node[:graylog2_light][:elasticsearch_url] %>
+elasticsearch_index_name = <%= node[:graylog2_light][:elasticsearch_index_name] %>
 
 force_syslog_rdns = <%= node[:graylog2_light][:server][:force_syslog_rdns] %>
 allow_override_syslog_date = <%= node[:graylog2_light][:server][:allow_override_syslog_date] %>
 
-mongodb_host = <%= node[:graylog2_light][:server][:mongodb_host] %>
-mongodb_port = <%= node[:graylog2_light][:server][:mongodb_port] %>
-mongodb_database = <%= node[:graylog2_light][:server][:mongodb_database] %>
-mongodb_useauth = <%= node[:graylog2_light][:server][:mongodb_useauth] %>
-mongodb_user = <%= node[:graylog2_light][:server][:mongodb_user] %>
-mongodb_password = <%= node[:graylog2_light][:server][:mongodb_password] %>
+mongodb_host = <%= node[:graylog2_light][:mongodb_host] %>
+mongodb_port = <%= node[:graylog2_light][:mongodb_port] %>
+mongodb_database = <%= node[:graylog2_light][:mongodb_database] %>
+mongodb_useauth = <%= node[:graylog2_light][:mongodb_useauth] %>
+mongodb_user = <%= node[:graylog2_light][:mongodb_user] %>
+mongodb_password = <%= node[:graylog2_light][:mongodb_password] %>
 mongodb_max_connections = <%= node[:graylog2_light][:server][:mongodb_max_connections] %>
 mongodb_threads_allowed_to_block_multiplier = <%= node[:graylog2_light][:server][:mongodb_threads_allowed_to_block_multiplier] %>
 
