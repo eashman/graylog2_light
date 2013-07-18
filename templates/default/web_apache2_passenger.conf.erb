@@ -1,0 +1,3 @@
+LoadModule passenger_module <%= node[:graylog2_light][:gem_path] %>/gems/<%= node[:graylog2_light][:web_rvm_apache][:passenger_version] %>/buildout/apache2/mod_passenger.so
+PassengerRoot <%= node[:graylog2_light][:gem_path] %>/gems/<%= node[:graylog2_light][:web_rvm_apache][:passenger_version] %>
+PassengerDefaultRuby <%= node[:graylog2_light][:web_rvm_apache][:ruby_path] %>
