@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd <%= node[:graylog2_light][:server][:installation_path] %>/<%= node[:graylog2_light][:server][:installation_dir] %>
+java -jar <%= @jar %> -f /etc/graylog2.conf -p <%= @pid_file %> >> <%= node[:graylog2_light][:server][:log_dir] %>/daemon.log 2>&1 &
