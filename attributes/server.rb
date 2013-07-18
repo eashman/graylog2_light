@@ -1,30 +1,22 @@
 
 ## Installation Options ##
-default[:graylog2_light][:server][:version]           = "0.11.0"
-default[:graylog2_light][:server][:download_url]      = "http://download.graylog2.org/graylog2-server"
-default[:graylog2_light][:server][:download_filename] = "graylog2-server-"
+server_version = "0.13.0-rc.1"
+default[:graylog2_light][:server][:version]           = "graylog2-server-#{server_version}"
+default[:graylog2_light][:server][:download_url]      = "https://github.com/Graylog2/graylog2-server/releases/download/#{server_version}"
+default[:graylog2_light][:server][:download_filename] = ""
 default[:graylog2_light][:server][:installation_path] = "/opt"
 default[:graylog2_light][:server][:installation_dir]  = "graylog2"
-default[:graylog2_light][:server][:pid_file]          = "/var/run/graylog2-server.pid"
+default[:graylog2_light][:server][:pid_dir]           = "/var/run/graylog2"
+default[:graylog2_light][:server][:log_dir]           = "/var/log/graylog2_server"
 ##
 
 
 ## Graylog2.conf Options ##
 default[:graylog2_light][:server][:syslog_listen_port] = 514
 default[:graylog2_light][:server][:syslog_protocol]    = "udp"
-
-default[:graylog2_light][:server][:elasticsearch_url] = "http://localhost:9200/"
-default[:graylog2_light][:server][:elasticsearch_index_name] = "graylog2"
-
 default[:graylog2_light][:server][:force_syslog_rdns] = false
 default[:graylog2_light][:server][:allow_override_syslog_date] = false
 
-default[:graylog2_light][:server][:mongodb_host] = "localhost"
-default[:graylog2_light][:server][:mongodb_port] = 27017
-default[:graylog2_light][:server][:mongodb_database] = "graylog2"
-default[:graylog2_light][:server][:mongodb_useauth] = false
-default[:graylog2_light][:server][:mongodb_user] = "grayloguser"
-default[:graylog2_light][:server][:mongodb_password] = 123
 default[:graylog2_light][:server][:mongodb_max_connections] = 100
 default[:graylog2_light][:server][:mongodb_threads_allowed_to_block_multiplier] = 5
 
@@ -57,7 +49,7 @@ default[:graylog2_light][:server][:elasticsearch][:node_master] = false
 default[:graylog2_light][:server][:elasticsearch][:node_data] = false
 default[:graylog2_light][:server][:elasticsearch][:network_host] = "0.0.0.0"
 default[:graylog2_light][:server][:elasticsearch][:transport_tcp_port] = 9350
-default[:graylog2_light][:server][:elasticsearch][:http_enabled] = false
+default[:graylog2_light][:server][:elasticsearch][:http_enabled] = true
 
 default[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_multicast_address] = "172.24.0.14"
 default[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_multicast_group] = "224.0.0.1"
