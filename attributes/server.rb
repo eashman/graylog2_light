@@ -61,4 +61,6 @@ default[:graylog2_light][:server][:elasticsearch_shards]   = 5
 default[:graylog2_light][:server][:elasticsearch_replicas] = 1
 
 
+# eg {"outputbuffer_processors" => 5}
+default[:graylog2_light][:server][:extra_config] = {}
 ##
