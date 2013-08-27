@@ -56,4 +56,9 @@ default[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_multicast_
 default[:graylog2_light][:server][:elasticsearch][:discovery_zen_minimum_master_nodes] = 1
 default[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_timeout] = "3s"
 default[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_unicast_hosts] = ["host1", "host2:port", "host3[portX-portY]"]
+
+default[:graylog2_light][:server][:elasticsearch_shards]   = 5
+default[:graylog2_light][:server][:elasticsearch_replicas] = 1
+
+
 ##
