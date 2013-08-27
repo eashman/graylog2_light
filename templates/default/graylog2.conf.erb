@@ -5,6 +5,8 @@ syslog_protocol = <%= node[:graylog2_light][:server][:syslog_protocol] %>
 
 elasticsearch_url = <%= node[:graylog2_light][:elasticsearch_url] %>
 elasticsearch_index_name = <%= node[:graylog2_light][:elasticsearch_index_name] %>
+elasticsearch_shards = <%= node[:graylog2_light][:server][:elasticsearch_shards] %>
+elasticsearch_replicas = <%= node[:graylog2_light][:server][:elasticsearch_replicas] %>
 
 force_syslog_rdns = <%= node[:graylog2_light][:server][:force_syslog_rdns] %>
 allow_override_syslog_date = <%= node[:graylog2_light][:server][:allow_override_syslog_date] %>
@@ -35,3 +37,7 @@ amqp_password = <%= node[:graylog2_light][:server][:amqp_password] %>
 amqp_virtualhost = <%= node[:graylog2_light][:server][:amqp_virtualhost] %>
 
 forwarder_loggly_timeout = <%= node[:graylog2_light][:server][:forwarder_loggly_timeout] %>
+
+<% node[:graylog2_light][:server][:extra_config].each do |conf, value| %>
+<%= conf %> = <%= value %>
+<% end %>
