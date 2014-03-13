@@ -1,16 +1,13 @@
 include_recipe "graylog2_light::user"
 
-download_filename = "#{node[:graylog2_light][:web_interface][:download_filename]}#{node[:graylog2_light][:web_interface][:version]}.tar.gz"
+download_filename = "#{node[:graylog2_light][:web_interface][:download_filename]}-#{node[:graylog2_light][:web_interface][:version]}.tgz"
 installation_dir = "#{node[:graylog2_light][:web_interface][:installation_path]}/#{node[:graylog2_light][:web_interface][:installation_dir]}"
+download_path = "#{node[:graylog2_light][:web_interface][:download_url]}/#{node[:graylog2_light][:web_interface][:version]}/#{download_filename}"
+
+log("Attempting to download Graylog2 web interface: #{download_path}")
 
 remote_file "#{node[:graylog2_light][:tmp_dir]}/#{download_filename}" do
-  source "#{node[:graylog2_light][:web_interface][:download_url]}/#{download_filename}"
-  mode "0644"
-  not_if { ::File.exists?("#{node[:graylog2_light][:tmp_dir]}/#{download_filename}") }
-end
-
-remote_file "#{node[:graylog2_light][:tmp_dir]}/#{download_filename}" do
-  source "#{node[:graylog2_light][:server][:download_url]}/#{download_filename}"
+  source download_path
   mode "0644"
   not_if { ::File.exists?("#{node[:graylog2_light][:tmp_dir]}/#{download_filename}") }
 end
@@ -26,28 +23,7 @@ execute "untar_graylog2_web" do
   not_if {installation_dir == "/"}
 end
 
-["general", "mongoid", "indexer", "ldap"].each do |template|
-    template "#{installation_dir}/config/#{template}.yml" do
-        source "web_#{template}.yml.erb"
-        user node[:graylog2_light][:user]
-    end
-end
-
-template "#{installation_dir}/config/initializers/secret_token.rb" do
-    source "web_secret_token.rb.erb"
+template "#{installation_dir}/conf/graylog2-web-interface.conf" do
+    source "web.conf.erb"
     user node[:graylog2_light][:user]
-end
-
-["build-essential", "libcurl4-openssl-dev", "libssl-dev", "zlib1g-dev", "libpcre3-dev"].each do |pkg|
-    package pkg
-end
-
-# Chef gem_package resource isn't working with Ruby 1.9.3.
-# # @TODO: investigate further and make this less disgusting :)
-execute "gem install bundler passenger --no-rdoc --no-ri"
-
-execute "build_graylog2_web" do
-    cwd installation_dir
-    user node[:graylog2_light][:user]
-    command "bundle install --without=development --path vendor/bundle"
 end

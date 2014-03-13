@@ -1,10 +1,10 @@
 include_recipe "graylog2_light::user"
 
-download_filename = "#{node[:graylog2_light][:server][:download_filename]}#{node[:graylog2_light][:server][:version]}.tar.gz"
+download_filename = "#{node[:graylog2_light][:server][:version]}.tgz"
 installation_dir = "#{node[:graylog2_light][:server][:installation_path]}/#{node[:graylog2_light][:server][:installation_dir]}"
 pid_file = "#{node[:graylog2_light][:server][:pid_dir]}/graylog2_server.pid"
 
-Chef::Log.warn("derp: #{node[:graylog2_light][:server][:download_url]}/#{download_filename}")
+log("#{node[:graylog2_light][:server][:download_url]}/#{download_filename}")
 
 remote_file "#{node[:graylog2_light][:tmp_dir]}/#{download_filename}" do
   source "#{node[:graylog2_light][:server][:download_url]}/#{download_filename}"

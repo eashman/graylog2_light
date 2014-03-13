@@ -1,9 +1,0 @@
-<VirtualHost *:<%= node[:graylog2_light][:web_rvm_apache][:listen_port] %>>
-    ServerName <%= node[:graylog2_light][:web_rvm_apache][:server_name] %>
-    ServerAlias <%= node[:graylog2_light][:web_rvm_apache][:server_alias] %>
-    DocumentRoot <%= node[:graylog2_light][:web_interface][:installation_path] %>/<% node[:graylog2_light][:web_interface][:installation_dir] %>/public/
-    <Directory <%= node[:graylog2_light][:web_interface][:installation_path] %>/<% node[:graylog2_light][:web_interface][:installation_dir] %>/public/>
-     AllowOverride all
-     Options -MultiViews
-    </Directory>
-</VirtualHost>

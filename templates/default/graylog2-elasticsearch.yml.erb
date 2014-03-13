@@ -1,18 +1,8 @@
-cluster.name: <%= node[:graylog2_light][:server][:elasticsearch][:cluster_name] %>
+cluster.name: <%= node[:graylog2_light][:server][:elasticsearch_cluster_name] %>
 
-node.name: "<%= node[:graylog2_light][:server][:elasticsearch][:node_name] %>"
-node.master: <%= node[:graylog2_light][:server][:elasticsearch][:node_master] %>
-node.data: <%= node[:graylog2_light][:server][:elasticsearch][:node_data] %>
-network.host: <%= node[:graylog2_light][:server][:elasticsearch][:network_host] %>
-transport.tcp.port: <%= node[:graylog2_light][:server][:elasticsearch][:transport_tcp_port] %>
-http.enabled: <%= node[:graylog2_light][:server][:elasticsearch][:http_enabled] %>
-
-<% if node[:graylog2_light][:server][:elasticsearch][:discovery] %>
-
-discovery.zen.ping.multicast.address: <%= node[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_multicast_address] %>
-discovery.zen.ping.multicast.group: <%= node[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_multicast_group] %>
-discovery.zen.minimum_master_nodes: <%= node[:graylog2_light][:server][:elasticsearch][:discovery_zen_minimum_master_nodes] %>
-discovery.zen.ping.timeout: <%= node[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_timeout] %>
-discovery.zen.ping.unicast.hosts: <%= node[:graylog2_light][:server][:elasticsearch][:discovery_zen_ping_unicast_hosts] %>
-
-<% end %>
+node.name: "graylog2-proxy"
+node.master: false
+node.data: false
+network.host: 0.0.0.0
+transport.tcp.port: 9350
+http.enabled: true

@@ -1,43 +1,52 @@
 # Configured by Chef. Do not edit manually.
 
-syslog_listen_port = <%= node[:graylog2_light][:server][:syslog_listen_port] %>
-syslog_protocol = <%= node[:graylog2_light][:server][:syslog_protocol] %>
-
-elasticsearch_url = <%= node[:graylog2_light][:elasticsearch_url] %>
-elasticsearch_index_name = <%= node[:graylog2_light][:elasticsearch_index_name] %>
+elasticsearch_max_number_of_indices = <%= node[:graylog2_light][:server][:elasticsearch_max_number_of_indices] %>
+elasticsearch_analyzer = <%= node[:graylog2_light][:server][:elasticsearch_analyzer] %>
 elasticsearch_shards = <%= node[:graylog2_light][:server][:elasticsearch_shards] %>
 elasticsearch_replicas = <%= node[:graylog2_light][:server][:elasticsearch_replicas] %>
+elasticsearch_cluster_name = <%= node[:graylog2_light][:server][:elasticsearch_cluster_name] %>
+elasticsearch_discovery_zen_ping_multicast_enabled = false
+elasticsearch_discovery_zen_ping_unicast_hosts = <%= node[:graylog2_light][:server][:elasticsearch_unicast_hosts] %>
 
-force_syslog_rdns = <%= node[:graylog2_light][:server][:force_syslog_rdns] %>
-allow_override_syslog_date = <%= node[:graylog2_light][:server][:allow_override_syslog_date] %>
-
-mongodb_host = <%= node[:graylog2_light][:mongodb_host] %>
-mongodb_port = <%= node[:graylog2_light][:mongodb_port] %>
-mongodb_database = <%= node[:graylog2_light][:mongodb_database] %>
-mongodb_useauth = <%= node[:graylog2_light][:mongodb_useauth] %>
-mongodb_user = <%= node[:graylog2_light][:mongodb_user] %>
-mongodb_password = <%= node[:graylog2_light][:mongodb_password] %>
+mongodb_host = <%= node[:graylog2_light][:server][:mongodb_host] %>
+mongodb_port = <%= node[:graylog2_light][:server][:mongodb_port] %>
+mongodb_database = <%= node[:graylog2_light][:server][:mongodb_database] %>
+mongodb_useauth = <%= node[:graylog2_light][:server][:mongodb_useauth] %>
+mongodb_user = <%= node[:graylog2_light][:server][:mongodb_user] %>
+mongodb_password = <%= node[:graylog2_light][:server][:mongodb_password] %>
 mongodb_max_connections = <%= node[:graylog2_light][:server][:mongodb_max_connections] %>
 mongodb_threads_allowed_to_block_multiplier = <%= node[:graylog2_light][:server][:mongodb_threads_allowed_to_block_multiplier] %>
 
-mq_batch_size = <%= node[:graylog2_light][:server][:mq_batch_size] %>
-mq_poll_freq = <%= node[:graylog2_light][:server][:mq_poll_freq] %>
-mq_max_size = <%= node[:graylog2_light][:server][:mq_max_size] %>
+transport_email_enabled = <%= node[:graylog2_light][:server][:transport_email_enabled] %>
+transport_email_hostname = <%= node[:graylog2_light][:server][:transport_email_hostname] %>
+transport_email_port = <%= node[:graylog2_light][:server][:transport_email_port] %>
+transport_email_use_auth = <%= node[:graylog2_light][:server][:transport_email_use_auth] %>
+transport_email_use_tls = <%= node[:graylog2_light][:server][:transport_email_use_tls] %>
+transport_email_use_ssl = <%= node[:graylog2_light][:server][:transport_email_use_ssl] %>
+transport_email_auth_username = <%= node[:graylog2_light][:server][:transport_email_auth_username] %>
+transport_email_auth_password = <%= node[:graylog2_light][:server][:transport_email_auth_password] %>
+transport_email_subject_prefix = <%= node[:graylog2_light][:server][:transport_email_subject_prefix] %>
+transport_email_from_email = <%= node[:graylog2_light][:server][:transport_email_from_email] %>
 
-use_gelf = <%= node[:graylog2_light][:server][:use_gelf] %>
-gelf_listen_address = <%= node[:graylog2_light][:server][:gelf_listen_address] %>
-gelf_listen_port = <%= node[:graylog2_light][:server][:gelf_listen_port] %>
-
-amqp_enabled = <%= node[:graylog2_light][:server][:amqp_enabled] %>
-amqp_subscribed_queues = <%= node[:graylog2_light][:server][:amqp_subscribed_queues] %>
-amqp_host = <%= node[:graylog2_light][:server][:amqp_host] %>
-amqp_port = <%= node[:graylog2_light][:server][:amqp_port] %>
-amqp_username = <%= node[:graylog2_light][:server][:amqp_username] %>
-amqp_password = <%= node[:graylog2_light][:server][:amqp_password] %>
-amqp_virtualhost = <%= node[:graylog2_light][:server][:amqp_virtualhost] %>
-
-forwarder_loggly_timeout = <%= node[:graylog2_light][:server][:forwarder_loggly_timeout] %>
+is_master = <%= node[:graylog2_light][:server][:is_master] %>
+node_id_file = <%= node[:graylog2_light][:server][:node_id_file] %>
+password_secret = <%= node[:graylog2_light][:server][:password_secret] %>
+root_password_sha2 = <%= node[:graylog2_light][:server][:root_password_sha2] %>
+plugin_dir = <%= node[:graylog2_light][:server][:plugin_dir] %>
+rest_listen_uri = <%= node[:graylog2_light][:server][:rest_listen_uri] %>
+retention_strategy = <%= node[:graylog2_light][:server][:retention_strategy] %>
+allow_leading_wildcard_searches = <%= node[:graylog2_light][:server][:allow_leading_wildcard_searches] %>
+output_batch_size = <%= node[:graylog2_light][:server][:output_batch_size] %>
+processbuffer_processors = <%= node[:graylog2_light][:server][:processbuffer_processors] %>
+outputbuffer_processors = <%= node[:graylog2_light][:server][:outputbuffer_processors] %>
+processor_wait_strategy = <%= node[:graylog2_light][:server][:processor_wait_strategy] %>
+ring_size = <%= node[:graylog2_light][:server][:ring_size] %>
+dead_letters_enabled = <%= node[:graylog2_light][:server][:dead_letters_enabled] %>
 
 <% node[:graylog2_light][:server][:extra_config].each do |conf, value| %>
 <%= conf %> = <%= value %>
 <% end %>
+
+
+
+
