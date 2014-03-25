@@ -7,6 +7,10 @@ elasticsearch_replicas = <%= node[:graylog2_light][:server][:elasticsearch_repli
 elasticsearch_cluster_name = <%= node[:graylog2_light][:server][:elasticsearch_cluster_name] %>
 elasticsearch_discovery_zen_ping_multicast_enabled = false
 elasticsearch_discovery_zen_ping_unicast_hosts = <%= node[:graylog2_light][:server][:elasticsearch_unicast_hosts] %>
+elasticsearch_max_docs_per_index = <%= node[:graylog2_light][:server][:elasticsearch_max_docs_per_index] %>
+elasticsearch_max_number_of_indices = <%= node[:graylog2_light][:server][:elasticsearch_max_number_of_indices] %>
+retention_strategy = <%= node[:graylog2_light][:server][:elasticsearch_retention_strategy]%>
+
 
 mongodb_host = <%= node[:graylog2_light][:server][:mongodb_host] %>
 mongodb_port = <%= node[:graylog2_light][:server][:mongodb_port] %>
